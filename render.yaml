@@ -15,5 +15,5 @@ services:
         value: 3000
       - key: DB_PORT
         value: 3306
-    plan: starter
+    plan: free
     numInstances: 1
