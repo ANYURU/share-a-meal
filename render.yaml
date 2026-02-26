@@ -2,28 +2,19 @@ services:
   - type: web
     name: sharemeal-api
     runtime: node
-    region: oregon  # Change to your preferred region
+    region: oregon
     rootDir: backend
     buildCommand: npm install
     startCommand: npm start
     preDeployCommand: npm run migrate
-    
-    # Auto-pull and redeploy on main branch push
-    autoDeploy: true
-    branch: main
-    
-    # Health check
+    autoDeployTrigger: commit
     healthCheckPath: /
-    
-    # Environment variables (set in Render dashboard)
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 3000
-      # Add others in dashboard for security:
-      # DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME, JWT_SECRET, ADMIN_SECRET, SERVICE_TOKEN, CORS_ORIGIN
-    
-    # App instance size
-    plan: standard  # Change to standard for better performance
+      - key: DB_PORT
+        value: 3306
+    plan: starter
     numInstances: 1
