@@ -11,9 +11,6 @@ services:
     autoDeploy: true
     branch: main
     
-    # Expose port
-    port: 3000
-    
     # Health check
     healthCheckPath: /
     
@@ -29,6 +26,3 @@ services:
     # App instance size
     plan: standard  # Change to standard for better performance
     numInstances: 1
-    
-    # Environment region (for low latency from database)
-    region: oregon
