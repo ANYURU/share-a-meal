@@ -3,9 +3,10 @@ services:
     name: sharemeal-api
     runtime: node
     region: oregon  # Change to your preferred region
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && npm start
-    preDeployCommand: cd backend && npm run migrate
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    preDeployCommand: npm run migrate
     
     # Auto-pull and redeploy on main branch push
     autoDeploy: true
